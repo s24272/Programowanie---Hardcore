@@ -1,0 +1,58 @@
+#include <iostream> 
+#include <string>
+
+double dodawanie( double a, double b){
+	return a+b;
+}
+double odejmowanie(double a, double b){
+	return a-b;
+}
+double mnozenie(double a, double b){
+	return a*b;
+}
+double dzielenie(double a, double b){
+	return a/b;
+}
+int main ( int argc , char * argv [])
+{
+	int x=1;
+	while(x!=0)
+	{
+			std::cout<<"Co chcesz zrobic?"<<"\n";
+			std::cout<<"Dodawanie - 1"<<"\n";
+			std::cout<<"Odejmowanie - 2"<<"\n";
+			std::cout<<"Mnozenie - 3"<<"\n";
+			std::cout<<"Dzielenie - 4"<<"\n";
+			std::cin>>x;
+			switch(x)
+			{
+				case 1: std::cout<<"Podaj liczby do dodania:"<<"\n";
+						double a, b;
+						std::cin>>a>>b;
+						std::cout<<a<<" + "<<b<<" = ";
+						std::cout<<dodawanie(a,b)<<"\n";
+						break;
+				case 2: std::cout<<"Podaj liczby do odjecia:"<<"\n";
+						double c, d;
+						std::cin>>c>>d;
+						std::cout<<c<<" - "<<d<<" = ";
+						std::cout<<odejmowanie(c,d)<<"\n";
+						break;
+				case 3: std::cout<<"Podaj liczby do pomnozenia:"<<"\n";
+						double f, g;
+						std::cin>>f;
+						std::cout<<f<<" * "<<g<<" = ";
+						std::cout<<mnozenie(f,g)<<"\n";
+						break;
+				case 4: std::cout<<"Podaj liczby do podzielenia:"<<"\n";
+						double h, i;
+						std::cin>>h>>i;
+						std::cout<<h<<" + "<<i<<" = ";
+						std::cout<<dzielenie(h,i)<<"\n";
+						break;
+			}
+		
+	}
+
+return 0;
+}
