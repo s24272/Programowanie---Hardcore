@@ -19,7 +19,7 @@ int main(){
         {
             std::cout<<"Za malo\n";
         }
-        else if(losnr<nr)
+        else
         {
             std::cout<<"Za duzo\n";
         }
