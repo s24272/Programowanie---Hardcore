@@ -1,0 +1,30 @@
+#include <iostream>
+
+
+int main()
+{
+    int a,b;
+    std::cout << "Podaj dwie liczby:";
+    std::cin>>a>>b;
+    if(a<b)
+    {
+        for(a;a<=b;a++)
+        {
+            std::cout<<a<<"\n";
+        }
+    }
+    else if (a>b)
+    {
+        for(b;b<=a;b++)
+        {
+            std::cout<<b<<"\n";
+        }
+    }
+    else
+    {
+        std::cout<<"liczby sa takie same";
+    }
+
+
+    return 0;
+}
