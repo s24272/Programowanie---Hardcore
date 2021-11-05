@@ -1,0 +1,39 @@
+#include <iostream>
+
+bool czy_pierwsza(int a)
+{
+    bool x=true;
+     for(int i=2;a>i;i++)
+    {
+        if(a%i==0)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+int main()
+{
+    int a;
+    std::cout << "podaj liczbe:\n";
+    std::cin>>a;
+    if(czy_pierwsza(a))
+    {
+        int licznik;
+        for(int i=2;a>=i;i++)
+        {
+            if(czy_pierwsza(i))
+            {
+                licznik=licznik+i;
+
+            }
+        }
+        std::cout<<licznik;
+    }
+    else
+    {
+        std::cout<<"Nie jest to liczba pierwsza";
+    }
+
+    return 0;
+}
