@@ -1,0 +1,26 @@
+#include <iostream>
+
+int main()
+{
+    int a, licznik=0;
+    std::cout << "podaj liczbe:";
+    std::cin>>a;
+
+    for(int i=2;a>i;i++)
+    {
+        if(a%i==0)
+        {
+            std::cout<<"Liczba nie jest pierwsza";
+            break;
+        }
+        else
+        {
+            licznik++;
+        }
+    }
+    if(licznik==a-2)
+    {
+        std::cout<<"Liczba jest pierwsza";
+    }
+    return 0;
+}
