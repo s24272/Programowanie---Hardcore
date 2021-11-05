@@ -1,0 +1,32 @@
+#include <iostream>
+
+
+int main()
+{
+    double a, b, c;
+    std::cout << "Podaj trzy liczby:\n";
+    std::cin>>a>>b>>c;
+    if(a>b)
+    {
+        if(a>c)
+        {
+            std::cout<<"Najwieksza jest: "<<a;
+        }
+        else
+        {
+             std::cout<<"Najwieksza jest: "<<c;
+        }
+    }
+    else
+    {
+        if(b>c)
+        {
+            std::cout<<"Najwieksza jest: "<<b;
+        }
+        else
+        {
+             std::cout<<"Najwieksza jest: "<<c;
+        }
+    }
+    return 0;
+}
