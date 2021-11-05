@@ -1,0 +1,18 @@
+#include <iostream>
+
+
+int main()
+{
+    int limit, dziel, licznik;
+    std::cout << "Podaj dwie liczby:\n";
+    std::cin>>limit>>dziel;
+    for(int i=0;i<limit;i++)
+    {
+        if(i%dziel==0)
+        {
+            licznik=licznik+i;
+        }
+    }
+    std::cout<<licznik;
+    return 0;
+}
