@@ -1,0 +1,16 @@
+#include <iostream>
+
+
+int main()
+{
+    int a, licznik=1,i=2;
+    std::cout << "Podaj liczbe: \n";
+    std::cin>>a;
+    do
+    {
+        licznik=licznik*i;
+        i++;
+    }while(i<=a);
+    std::cout<<licznik;
+    return 0;
+}
