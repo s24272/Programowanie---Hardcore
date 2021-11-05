@@ -1,0 +1,26 @@
+#include <iostream>
+
+char znak(int a, int b)
+{
+    if(a>b)
+    {
+        return '>';
+    }
+    else if(a<b)
+    {
+        return '<';
+    }
+    else if(a==b)
+    {
+        return '=';
+    }
+}
+
+int main()
+{
+    int a, b;
+    std::cout << "Podaj dwie liczby:\n";
+    std::cin>>a>>b;
+    std::cout<<a<<znak(a,b)<<b;
+    return 0;
+}
