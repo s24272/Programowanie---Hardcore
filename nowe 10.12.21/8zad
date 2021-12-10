@@ -1,0 +1,20 @@
+#include <iostream>
+
+int main() {
+	std::string s;
+	int a;
+	std::cout<<"Podaj slowo i liczbe: ";
+	std::cin>>s>>a;
+	if(s.size()<a)
+	{
+		std::cout<<"Slowo jest krotsze niz licznba nie moge wykonac operacji";
+	}
+	else
+	{
+		for(int i=a-1;i<s.size();i+=a)
+		{
+			std::cout<<s[i]<<" ";
+		}
+	}
+	return 0;
+}
