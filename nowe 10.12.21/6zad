@@ -1,0 +1,25 @@
+#include <iostream>
+
+bool is_divisible(int n, int l)
+{
+	if(n%l==0)
+	{
+		return true;
+	}
+	return false;
+}
+int main()
+{
+	int n,l;
+	std::cout<<"Podaj dwie liczby: ";
+	std::cin>>n>>l;
+	if(is_divisible(n,l))
+	{
+		std::cout<<"Jest podzielna";
+	}
+	else
+	{
+		std::cout<<"Jest niepodzielna";
+	}
+	return 0;
+}
