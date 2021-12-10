@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+
+bool czy_pierwsza(int n)
+{
+	if(n<2)
+		return false; 
+		
+	for(int i=2;i*i<=n;i++)
+		if(n%i==0)
+			return false; 
+	return true;
+}
+
+int main() {
+	
+	std::string pierwsze, p;
+	for(int i=2;i<20;i++)
+	{
+		if(czy_pierwsza(i))
+		{
+			std::ostringstream ss;
+			ss<<i;
+		   //std::cout<<i<<" ";
+		   pierwsze=pierwsze+ss.str()+" ";
+		}
+	}
+	
+	std::cout<<pierwsze<<"\n";
+	std::cout<<pierwsze<<"\n";
+	return 0;
+}
