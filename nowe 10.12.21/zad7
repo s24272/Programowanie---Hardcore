@@ -1,0 +1,25 @@
+#include <iostream>
+
+int count_chars(std::string a, char b)
+{
+	int licznik=0;
+	for(int i=0;i<a.size();i++)
+	{
+		if(a[i]==b)
+		{
+			licznik++;
+		}
+	}
+	return licznik;
+}
+int main() {
+	std::string a;
+	char b;
+	std::cout<<"Podaj jakies slowo: ";
+	std::cin>>a;
+	std::cout<<"Podaj litere: ";
+	std::cin>>b;
+	std::cout<<count_chars(a,b);
+	
+	return 0;
+}
