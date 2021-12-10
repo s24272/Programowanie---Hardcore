@@ -1,0 +1,25 @@
+#include <iostream>
+
+bool is_even(int n)
+{
+	if(n%2==0)
+	{
+		return true;
+	}
+	return false;
+}
+int main()
+{
+	int n;
+	std::cout<<"Podaj liczbe: ";
+	std::cin>>n;
+	if(is_even(n))
+	{
+		std::cout<<"Jest parzysta";
+	}
+	else
+	{
+		std::cout<<"Jest nieparzysta";
+	}
+	return 0;
+}
