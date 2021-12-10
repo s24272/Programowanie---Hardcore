@@ -1,0 +1,10 @@
+#include <iostream>
+
+int main() {
+	std::string imie="Damian";
+	double waga=95;
+	int wzrost=190;
+	std::cout<<"Imie: "<<imie<<"\nWaga: "<<waga<<"kg\n"<<"Wzrost: "<<wzrost<<"cm"<<std::endl;
+	
+	return 0;
+}
