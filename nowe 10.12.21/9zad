@@ -1,0 +1,28 @@
+#include <iostream>
+#include <algorithm>
+
+bool is_palindrome(std::string a)
+{
+	std::string pom=a;
+	std::reverse(a.begin(),a.end());
+	if(pom==a)
+	{
+		return true;
+	}
+	return false;
+}
+int main() 
+{
+	std::string a;
+	std::cout<<"Podaj slowo: ";
+	std::cin>>a;
+	if(is_palindrome(a))
+	{
+		std::cout<<"To slowo jest palindromem";
+	}
+	else
+	{
+		std::cout<<"to slowo nie jest palidromem";
+	}
+	return 0;
+}
