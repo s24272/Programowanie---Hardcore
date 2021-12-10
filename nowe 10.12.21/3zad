@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main(int argc, char** argv) {
+	
+	std::string imie1, imie2;
+	std::cout<<"Podaj pierwsze imie: ";
+	std::cin>>imie1;
+	std::cout<<"Podaj drugie imie: ";
+	std::cin>>imie2;
+	if(imie1.size()>imie2.size())
+	{
+		std::cout<<"\npierwsze imie jest dluzsze!\n";
+	}
+	else if(imie1.size()<imie2.size())
+	{
+		std::cout<<"drugie imie jest dluzsze...\n";
+	}
+	else
+	{
+		std::cout<<"Oba imiona sa tej samej dlugosci.";
+	}
+	return 0;
+}
