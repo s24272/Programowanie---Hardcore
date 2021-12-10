@@ -1,8 +1,16 @@
 #include <iostream>
 
-bool is_divisible(int n, int l)
+int is_divisible(int n, int l)
 {
 	if(n%l==0)
+	{
+		return 1;
+	}
+	return 0;
+}
+bool is_even(int n, int l)
+{
+	if(is_divisible(n,l))
 	{
 		return true;
 	}
@@ -13,7 +21,7 @@ int main()
 	int n,l;
 	std::cout<<"Podaj dwie liczby: ";
 	std::cin>>n>>l;
-	if(is_divisible(n,l))
+	if(is_even(n,l))
 	{
 		std::cout<<"Jest podzielna";
 	}
