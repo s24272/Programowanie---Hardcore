@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main() {
+	
+	int lz=0, lm=0;
+	std::string a;
+	std::cout<<"Podaj 5 imion:\n";
+	for(int i=0;i<5;i++)
+	{
+		std::cin>>a;
+		if(a[a.size()-1]=='a')
+		{
+			lz++;
+		}
+		else
+		{
+			lm++;
+		}
+	}
+	std::cout<<"zenskie: "<<lz<<" meskie: "<<" "<<lm;
+
+	return 0;
+}
