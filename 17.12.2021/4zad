@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+
+struct student{
+	std::string imie;
+	std::string nazwisko;
+	std::vector <double> oceny;
+};
+
+double average_of(student pierwszy)
+{
+	double licznik=0;
+	for(int i=0;i<pierwszy.oceny.size();i++)
+	{
+		licznik+=pierwszy.oceny[i];	
+	}	
+	return licznik/pierwszy.oceny.size();
+}
+int main() {
+	
+	std::string imie, nazwisko;
+	double a;
+	int ile;
+	student pierwszy;
+	std::cout<<"Podaj imie: ";
+	std::cin>>pierwszy.imie;
+	std::cout<<"Podaj nazwisko: ";
+	std::cin>>pierwszy.nazwisko;
+	std::cout<<"Podaj ilosc ocen: ";
+	std::cin>>ile;
+	std::cout<<"Podaj oceny: \n";
+	for(int i=0;i<ile;i++)
+	{
+		std::cin>>a;
+		pierwszy.oceny.push_back(a);
+	}
+	std::cout<<"Srednia ocen: ";
+	std::cout<<average_of(pierwszy);
+	return 0;
+}
