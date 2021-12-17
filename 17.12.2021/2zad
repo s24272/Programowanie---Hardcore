@@ -1,0 +1,50 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+bool is_palindrome(std::string a);
+
+
+void filter_palindromes(std::vector <std::string> slowa)
+{
+	std::vector <std::string> palindromy;
+	for(int i=0;i<slowa.size();i++)
+	{
+		if(is_palindrome(slowa[i]))
+		{
+			palindromy.push_back(slowa[i]);
+		}
+	}
+	for(int i=0;i<palindromy.size();i++)
+	{
+		std::cout<<palindromy[i]<<"\n";
+	}
+}
+
+bool is_palindrome(std::string a)
+{
+	std::string pom=a;
+	std::reverse(a.begin(),a.end());
+	if(pom==a)
+	{
+		return true;
+	}
+	return false;
+}
+int main() 
+{
+	std::vector <std::string> slowa;
+	std::string a;
+	int ile;
+	std::cout<<"Podaj ile slow sprawdzic: ";
+	std::cin>>ile;
+	std::cout<<"Podaj slowa: \n";
+	for(int i=0;i<ile;i++)
+	{
+		std::cin>>a;
+		slowa.push_back(a);
+	}
+	std::cout<<"Palindromami sa: \n";
+	filter_palindromes(slowa);
+	
+	return 0;
+}
