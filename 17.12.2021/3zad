@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+
+double dot_product(std::vector <double> tab1, std::vector <double> tab2)
+{
+	double licznik=0;
+	for(int i=0;i<tab1.size();i++)
+	{
+		licznik=tab1[i]*tab2[i]+licznik;
+	}
+	return licznik;
+}
+
+int main() {
+	int a;
+	std::vector <double> tab1, tab2;
+	double x, y;
+	std::cout<<"Podaj ile par liczb pomnozyc skalarnie: ";
+	std::cin>>a;
+	std::cout<<"Podaj pary liczb: \n";
+	for(int i=0;i<a;i++)
+	{
+		std::cin>>x>>y;
+		tab1.push_back(x);
+		tab2.push_back(y);
+	}
+	std::cout<<"Iloczyn skalarny: ";
+	std::cout<<dot_product(tab1, tab2);
+	
+	return 0;
+}
