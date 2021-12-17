@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+
+double average_of(std::vector <double> liczby)
+{
+	double licznik=0;
+	for(int i=0;i<liczby.size();i++)
+	{
+		licznik+=liczby[i];	
+	}	
+	return licznik/liczby.size();
+}
+int main() {
+	int a;
+	double x;
+	std::vector <double> liczby;
+	std::cout<<"Podaj z ilu liczb chesz wyliczyc srednia: ";
+	std::cin>>a;
+	std::cout<<"Podaj liczby:\n";
+	for(int i=0;i<a;i++)
+	{
+		std::cin>>x;
+		liczby.push_back(x);
+	}
+	std::cout<<average_of(liczby);
+	return 0;
+}
