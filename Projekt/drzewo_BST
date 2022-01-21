@@ -1,0 +1,225 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+#include <iomanip>
+ 
+using namespace std;
+ 
+struct wezel
+{
+int wartosc;           
+struct wezel *rodzic;  
+struct wezel *lewo;   
+struct wezel *prawo;   
+};
+struct wezel *korzen;  
+ 
+
+struct wezel* najmniejsza(struct wezel *start)
+{
+	if(start->lewo!=NULL)
+	{
+		return najmniejsza(start->lewo);
+	}
+	else
+	return start;
+}
+ 
+
+struct wezel* szukaj(struct wezel *start, int wartosc) 
+{
+
+	if (start->wartosc==wartosc)
+	{
+		return start;
+	}
+	else if (wartosc<start->wartosc && start->lewo!=NULL)
+	{
+		return szukaj(start->lewo, wartosc);
+	}     
+	else if (wartosc > start->wartosc && start->prawo!=NULL) 
+	{
+		return szukaj(start->prawo, wartosc);
+	}
+	return NULL;
+}
+ 
+
+int dodawanie(int n, struct wezel *start)
+{
+	if (korzen==NULL)
+	{
+		korzen=(wezel*)malloc(sizeof *korzen);
+		korzen->wartosc=n;
+		korzen->lewo=NULL;
+		korzen->prawo=NULL;
+		korzen->rodzic=NULL;
+	
+	}
+	else if(n < start->wartosc)
+	{
+		if(start->lewo!=NULL)
+		{
+			dodawanie(n,start->lewo);
+		}
+		else
+		{
+			wezel *nowy=(wezel*)malloc(sizeof *korzen);
+			nowy->wartosc=n;
+			nowy->lewo=NULL;
+			nowy->prawo=NULL;
+			nowy->rodzic=start;
+			start->lewo=nowy;
+		}
+	}
+	else
+	{    
+		if(start->prawo!=NULL)
+		{
+			dodawanie(n,start->prawo);
+		
+		}  
+		else
+		{
+			wezel *nowy=(wezel*)malloc(sizeof *korzen);
+			nowy->wartosc=n;
+			nowy->lewo=NULL;
+			nowy->prawo=NULL;
+			nowy->rodzic=start;
+			start->prawo=nowy;
+		}
+	}
+	return 0;
+}
+
+void kasowanie(struct wezel *start)
+{
+	if(start->lewo==NULL && start->prawo==NULL)
+	{
+		if(start->rodzic==NULL)
+		{
+			korzen=NULL;
+		}
+		else if(start->rodzic->lewo==start)
+		{
+			start->rodzic->lewo=NULL;
+		}
+		else
+		{   
+			start->rodzic->prawo=NULL;
+		}
+		delete start;
+	}
+	else if(start->lewo==NULL || start->prawo==NULL)
+	{
+		if(start->lewo==NULL)
+		{
+			if(start->rodzic==NULL)
+			{
+				korzen=start->prawo;
+			}
+			else if(start->rodzic->lewo==start)
+			{
+				start->rodzic->lewo=start->prawo;
+			}
+			else
+			{
+				start->rodzic->prawo=start->prawo;
+			}
+		}
+		else
+		{
+			if(start->rodzic==NULL)
+			{
+				korzen=start->lewo;
+			}
+			else if(start->rodzic->lewo==start)
+			{
+				start->rodzic->lewo=start->lewo;
+			}
+			else
+			{
+				start->rodzic->prawo=start->lewo;
+			}
+		}
+		delete start;
+	}
+	else
+	{
+		struct wezel *temp;
+		temp=najmniejsza(start->prawo);
+		start->wartosc=temp->wartosc;
+		kasowanie(temp);
+	}
+}
+ 
+
+void wypisanie(const wezel *start, string wers)
+{
+	cout<<setw(2)<<start->wartosc;
+	if(start->lewo!=NULL)
+	{
+		wers+=" |     ";
+	}
+	else
+	{
+		wers+="       ";
+	}
+	if(start->prawo!=NULL)
+	{
+		cout<<"-----";
+		wypisanie(start->prawo, wers);
+	}
+	if(start->lewo!=NULL){
+		cout<<endl;
+		cout<<wers<<endl;
+		wers=wers.substr(0, wers.length()-7);
+		cout<<wers<<"  -----";
+		wers+="       ";
+		wypisanie(start->lewo, wers);
+	}
+}
+
+ 
+int main()
+{
+	int i;
+	int a,k,size;
+	cout<<"Podaj rozmiar drzewa"<<endl;
+	cin>>size;
+	korzen=NULL;
+ 
+	for(i=0;i<size;i++)
+	{
+		cout<<"Podaj liczbe jaka chcesz dodac:"<<endl;
+		cin>>a;
+		dodawanie(a, korzen);
+		cout<<endl;
+	}
+	
+ 	int ile;
+	wypisanie(korzen, "");
+	cout<<endl;
+	cout<<"Ile wartosci chcesz usunac z drzewa: \n";
+	cin>>ile;
+	
+	if(ile<size)
+	{
+		for(int i=0;i<ile;i++)
+		{
+			cout<<"Podaj wartosc ktora chcesz usunac:"<<endl;
+			cin>>k;
+			kasowanie(szukaj(korzen,k)); 	
+			wypisanie(korzen, "");
+			cout<<endl;
+		}
+	}
+	else
+	{
+		cout<<"Nie da sie usunac tylu wartosci \n";
+	}
+	
+
+ 
+	return 0;
+}
